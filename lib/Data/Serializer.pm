@@ -525,16 +525,16 @@ Provides a unified interface to the various serializing modules
 currently available.  Adds the functionality of both compression
 and encryption. 
 
-By default L<Data::Serializer(3)> adds minor metadata and encodes serialized data
+By default L<Data::Serializer> adds minor metadata and encodes serialized data
 structures in it's own format.  If you are looking for a simple unified
-pass through interface to the underlying serializers then look into L<Data::Serializer::Raw(3)> 
-that comes bundled with L<Data::Serializer(3)>.
+pass through interface to the underlying serializers then look into L<Data::Serializer::Raw> 
+that comes bundled with L<Data::Serializer>.
 
 =head1 EXAMPLES
 
 =over 4
 
-=item  Please see L<Data::Serializer::Cookbook(3)>
+=item  Please see L<Data::Serializer::Cookbook>
 
 =back
 
@@ -559,7 +559,7 @@ that comes bundled with L<Data::Serializer(3)>.
                         );
 
 
-B<new> is the constructor object for L<Data::Serializer(3)> objects.  
+B<new> is the constructor object for L<Data::Serializer> objects.  
 
 =over 4
 
@@ -637,7 +637,7 @@ of the original serialized reference.
 This is a straight pass through to the underlying serializer,
 nothing else is done. (no encoding, encryption, compression, etc)
 
-If you desire this functionality you should look at L<Data::Serializer::Raw(3)> instead, it is 
+If you desire this functionality you should look at L<Data::Serializer::Raw> instead, it is 
 faster and leaner.
 
 =item B<raw_deserialize> - deserialize reference in raw form
@@ -647,14 +647,14 @@ faster and leaner.
 This is a straight pass through to the underlying serializer,
 nothing else is done. (no encoding, encryption, compression, etc)
 
-If you desire this functionality you should look at L<Data::Serializer::Raw(3)> instead, it is 
+If you desire this functionality you should look at L<Data::Serializer::Raw> instead, it is 
 faster and leaner.
 
 =item B<secret> - specify secret for use with encryption
 
   $obj->secret('mysecret');
 
-Changes setting of secret for the L<Data::Serializer(3)> object.  Can also be set
+Changes setting of secret for the L<Data::Serializer> object.  Can also be set
 in the constructor.  If specified than the object will utilize encryption.
 
 =item B<portable> - encodes/decodes serialized data
@@ -673,7 +673,7 @@ Compresses serialized data.  Default is not to use it.  Will compress if set to 
 Setting this to a true value will force serializer and deserializer to work in raw mode 
 (see raw_serializer and raw_deserializer).  The default is for this to be off.
 
-If you desire this functionality you should look at L<Data::Serializer::Raw(3)> instead, it is 
+If you desire this functionality you should look at L<Data::Serializer::Raw> instead, it is 
 faster and leaner.
 
 =item B<serializer> - change the serializer
@@ -682,37 +682,37 @@ Currently supports the following serializers:
 
 =over 4
 
-=item L<Bencode(3)>
+=item L<Bencode>
 
-=item L<Convert::Bencode(3)>
+=item L<Convert::Bencode>
 
-=item L<Convert::Bencode_XS(3)>
+=item L<Convert::Bencode_XS>
 
-=item L<Config::General(3)>
+=item L<Config::General>
 
-=item L<Data::Denter(3)>
+=item L<Data::Denter>
 
-=item L<Data::Dumper(3)>
+=item L<Data::Dumper>
 
-=item L<Data::Taxi(3)>
+=item L<Data::Taxi>
 
-=item L<FreezeThaw(3)>
+=item L<FreezeThaw>
 
-=item L<JSON(3)>
+=item L<JSON>
 
-=item L<JSON::Syck(3)>
+=item L<JSON::Syck>
 
-=item L<PHP::Serialization(3)>
+=item L<PHP::Serialization>
 
-=item L<Storable(3)>
+=item L<Storable>
 
-=item L<XML::Dumper(3)>
+=item L<XML::Dumper>
 
-=item L<XML::Simple(3)>
+=item L<XML::Simple>
 
-=item L<YAML(3)>
+=item L<YAML>
 
-=item L<YAML::Syck(3)>
+=item L<YAML::Syck>
 
 =back
 
@@ -726,33 +726,33 @@ documentation in those modules for further information.
 
 =item B<cipher> - change the cipher method
 
-Utilizes L<Crypt::CBC(3)> and can support any cipher method that it supports.
+Utilizes L<Crypt::CBC> and can support any cipher method that it supports.
 
 =item B<digester> - change digesting method
 
-Uses L<Digest(3)> so can support any digesting method that it supports.  Digesting
+Uses L<Digest> so can support any digesting method that it supports.  Digesting
 function is used internally by the encryption routine as part of data verification.
 
 =item B<compressor> - changes compresing module
 
-Currently L<Compress::Zlib(3)> and L<Compress::PPMd(3)> are the only options
+Currently L<Compress::Zlib> and L<Compress::PPMd> are the only options
 
 =item B<encoding> - change encoding method
 
 Encodes data structure in ascii friendly manner.  Currently the only valid options
 are hex, or b64. 
 
-The b64 option uses Base64 encoding provided by L<MIME::Base64(3)>, but strips out newlines.
+The b64 option uses Base64 encoding provided by L<MIME::Base64>, but strips out newlines.
 
 =item B<serializer_token> - add usage hint to data
 
-L<Data::Serializer(3)> prepends a token that identifies what was used to process its data.
+L<Data::Serializer> prepends a token that identifies what was used to process its data.
 This is used internally to allow runtime determination of how to extract serialized
-data.  Disabling this feature is not recommended.   (Use L<Data::Serializer::Raw(3)> instead).
+data.  Disabling this feature is not recommended.   (Use L<Data::Serializer::Raw> instead).
 
 =item B<options> - pass options through to underlying serializer
 
-Currently is only supported by L<Config::General(3)>, and L<XML::Dumper(3)>.  
+Currently is only supported by L<Config::General>, and L<XML::Dumper>.  
 
   my $obj = Data::Serializer->new(serializer => 'Config::General',
                                   options    => {
@@ -815,7 +815,7 @@ http://rt.cpan.org/Public/Dist/Display.html?Name=Data-Serializer
 
 =head1 TODO
 
-Extend the persistent framework.  Perhaps  L<Persistent::Base(3)> framework
+Extend the persistent framework.  Perhaps  L<Persistent::Base> framework
 would be useful to explore further.  Volunteers for putting this together
 would be welcome.
 
@@ -834,8 +834,8 @@ See http://www.perl.com/language/misc/Artistic.html
 
 =head1 ACKNOWLEDGEMENTS 
 
-Gurusamy Sarathy and Raphael Manfredi for writing L<MLDBM(3)>,
-the module which inspired the creation of L<Data::Serializer(3)>.
+Gurusamy Sarathy and Raphael Manfredi for writing L<MLDBM>,
+the module which inspired the creation of L<Data::Serializer>.
 
 And thanks to all of you who have provided the feedback 
 that has improved this module over the years.
@@ -855,53 +855,53 @@ L<http://github.com/neilneely/Data-Serializer/>
 
 =over 4
 
-=item L<Bencode(3)>
+=item L<Bencode>
 
-=item L<Convert::Bencode(3)>
+=item L<Convert::Bencode>
 
-=item L<Convert::Bencode_XS(3)>
+=item L<Convert::Bencode_XS>
 
-=item L<Config::General(3)>
+=item L<Config::General>
 
-=item L<Data::Denter(3)>
+=item L<Data::Denter>
 
-=item L<Data::Dumper(3)>
+=item L<Data::Dumper>
 
-=item L<Data::Taxi(3)>
+=item L<Data::Taxi>
 
-=item L<FreezeThaw(3)>
+=item L<FreezeThaw>
 
-=item L<JSON(3)>
+=item L<JSON>
 
-=item L<JSON::Syck(3)>
+=item L<JSON::Syck>
 
-=item L<PHP::Serialization(3)>
+=item L<PHP::Serialization>
 
-=item L<Storable(3)>
+=item L<Storable>
 
-=item L<XML::Dumper(3)>
+=item L<XML::Dumper>
 
-=item L<XML::Simple(3)>
+=item L<XML::Simple>
 
-=item L<YAML(3)>
+=item L<YAML>
 
-=item L<YAML::Syck(3)>
+=item L<YAML::Syck>
 
-=item L<Compress::Zlib(3)>
+=item L<Compress::Zlib>
 
-=item L<Compress::PPMd(3)>
+=item L<Compress::PPMd>
 
-=item L<Digest(3)>
+=item L<Digest>
 
-=item L<Digest::SHA(3)>
+=item L<Digest::SHA>
 
-=item L<Crypt::CBC(3)>
+=item L<Crypt::CBC>
 
-=item L<MIME::Base64(3)>
+=item L<MIME::Base64>
 
-=item L<IO::File(3)>
+=item L<IO::File>
 
-=item L<Data::Serializer::Config::Wrest(3)> - adds supports for L<Config::Wrest(3)>
+=item L<Data::Serializer::Config::Wrest> - adds supports for L<Config::Wrest>
 
 =back
 
