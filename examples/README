@@ -18,7 +18,7 @@ CONVENTIONS
 CONVENTIONS for Raw Access
     Fort hose who want a straight pass through to the underlying serializer,
     where nothing else is done (no encoding, encryption, compression, etc)
-    there is Data::Serializer::Raw(3).
+    there is Data::Serializer::Raw.
 
     These begin like this:
 
@@ -133,6 +133,6 @@ COPYRIGHT
     under the same terms as Perl itself.
 
 SEE ALSO
-    Data::Serializer(3)
-    Data::Serializer::Raw(3)
+    Data::Serializer
+    Data::Serializer::Raw
 
